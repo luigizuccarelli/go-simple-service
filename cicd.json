@@ -6,7 +6,7 @@
 	"stages": [
 		{
       "id" : 1,
-			"name": "Git check",
+      "name": "Git check",
       "exec": "ls",
       "wait": 5,
       "skip": false,
@@ -16,7 +16,7 @@
     },
     {
       "id" : 2,
-			"name": "Clean",
+      "name": "Clean",
       "exec": "rm",
       "wait": 5,
       "skip": false,
@@ -27,7 +27,7 @@
     },
     {
       "id" : 3,
-			"name": "Test",
+      "name": "Test",
       "exec": "make",
       "wait": 5,
       "skip": true,
@@ -37,7 +37,7 @@
     },
     {
       "id" : 4,
-			"name": "Cover",
+      "name": "Cover",
       "exec": "make",
       "wait": 5,
       "skip": true,
@@ -47,7 +47,7 @@
     },
     {
       "id" : 5,
-			"name": "Compile",
+      "name": "Compile",
       "exec": "go",
       "wait": 10,
       "skip": false,
@@ -59,7 +59,7 @@
     },
     {
       "id" : 6,
-			"name": "Container",
+      "name": "Container",
       "exec": "podman",
       "wait": 5,
       "skip": true,
@@ -72,8 +72,8 @@
     },
     {
       "id" : 7,
-			"name": "Deploy",
-      "exec": ".microservice",
+      "name": "Deploy",
+      "exec": "./microservice",
       "wait": 5,
       "skip": false,
       "replicas" : 3,
