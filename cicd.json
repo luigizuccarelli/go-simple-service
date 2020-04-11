@@ -1,8 +1,8 @@
 {
-  "project": "Golang MongoDB Interface",
+  "project": "Golang Simple Microservice",
   "metainfo": "Author LMZ 03/2020",
   "workdir": "work",
-  "scm": "git@github.com:luigizuccarelli/golang-mongodbinterface.git",
+  "scm": "git@github.com:luigizuccarelli/golang-simple-service",
 	"stages": [
 		{
       "id" : 1,
@@ -17,11 +17,12 @@
     {
       "id" : 2,
 			"name": "Clean",
-      "exec": "make",
+      "exec": "rm",
       "wait": 5,
       "skip": false,
 			"commands": [
-        "clean"
+        "-rf",
+        "microservice"
       ]
     },
     {
@@ -29,7 +30,7 @@
 			"name": "Test",
       "exec": "make",
       "wait": 5,
-      "skip": false,
+      "skip": true,
 			"commands": [
         "test"
       ]
@@ -39,7 +40,7 @@
 			"name": "Cover",
       "exec": "make",
       "wait": 5,
-      "skip": false,
+      "skip": true,
 			"commands": [
         "cover"
       ]
@@ -47,11 +48,13 @@
     {
       "id" : 5,
 			"name": "Compile",
-      "exec": "make",
+      "exec": "go",
       "wait": 10,
       "skip": false,
 			"commands": [
-        "build"
+        "build",
+        "-o",
+        "microservice"
       ]
     },
     {
@@ -63,7 +66,7 @@
 			"commands": [
         "build",
         "-t",
-        "docker.io/lzuccarelli/golang-mongodbinterface:1.13.1",
+        "docker.io/lzuccarelli/golang-simple:1.13.1",
         "."
       ]
     },
@@ -74,11 +77,11 @@
       "wait": 5,
       "skip": false,
       "replicas" : 3,
-      "service": "golang-composite",
+      "service": "golang-simple",
       "envars": [
         {
           "name":"SERVER_PORT",
-          "value": "8081"
+          "value": "9003"
         },
         {
           "name":"LOG_LEVEL",
@@ -86,7 +89,7 @@
         },
         {
           "name":"NAME",
-          "value":"golang-composite"
+          "value":"golang-simple"
         },
         {
           "name":"VERSION",
