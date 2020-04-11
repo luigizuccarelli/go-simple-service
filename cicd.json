@@ -78,6 +78,9 @@
       "skip": false,
       "replicas" : 3,
       "service": "golang-simple",
+			"commands": [
+        "9003"
+      ],
       "envars": [
         {
           "name":"SERVER_PORT",
