@@ -3,14 +3,14 @@
   "metainfo": "Author LMZ 03/2020",
   "workdir": "work",
   "scm": "git@github.com:luigizuccarelli/golang-simple-service",
-	"stages": [
-		{
+  "stages": [
+    {
       "id" : 1,
       "name": "Git check",
       "exec": "ls",
-      "wait": 5,
+      "wait": 10,
       "skip": false,
-			"commands": [
+      "commands": [
         "-la"
       ]
     },
@@ -18,9 +18,9 @@
       "id" : 2,
       "name": "Clean",
       "exec": "rm",
-      "wait": 5,
+      "wait": 10,
       "skip": false,
-			"commands": [
+      "commands": [
         "-rf",
         "microservice"
       ]
@@ -29,9 +29,9 @@
       "id" : 3,
       "name": "Test",
       "exec": "make",
-      "wait": 5,
+      "wait": 10,
       "skip": true,
-			"commands": [
+      "commands": [
         "test"
       ]
     },
@@ -39,9 +39,9 @@
       "id" : 4,
       "name": "Cover",
       "exec": "make",
-      "wait": 5,
+      "wait": 10,
       "skip": true,
-			"commands": [
+      "commands": [
         "cover"
       ]
     },
@@ -51,7 +51,7 @@
       "exec": "go",
       "wait": 10,
       "skip": false,
-			"commands": [
+      "commands": [
         "build",
         "-o",
         "microservice"
@@ -61,9 +61,9 @@
       "id" : 6,
       "name": "Container",
       "exec": "podman",
-      "wait": 5,
+      "wait": 10,
       "skip": true,
-			"commands": [
+      "commands": [
         "build",
         "-t",
         "docker.io/lzuccarelli/golang-simple:1.13.1",
@@ -74,11 +74,11 @@
       "id" : 7,
       "name": "Deploy",
       "exec": "./microservice",
-      "wait": 5,
-      "skip": false,
+      "wait": 10,
+      "skip": true,
       "replicas" : 3,
       "service": "golang-simple",
-			"commands": [
+      "commands": [
         "9003"
       ],
       "envars": [
