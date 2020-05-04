@@ -1,7 +1,6 @@
 # Go simple service
 
 Simple utility for testing web services on [Microlib](https://github.com/microlib).
-Uses a generic script `script.sh` to simulate start & stop for Linux & MacOS based systems. 
 
 ## Usage 
 
@@ -9,6 +8,7 @@ Uses a generic script `script.sh` to simulate start & stop for Linux & MacOS bas
 # cd to project directory and build executable
 $ go build .
 $ chmod u+x script.sh
+```
 
 
 ## Note
